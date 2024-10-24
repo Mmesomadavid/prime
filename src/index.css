@@ -50,7 +50,6 @@ body {
 
 
 
-
 .network-status {
   position: fixed;
   top: -100px; /* Start off-screen */
@@ -65,6 +64,8 @@ body {
   font-weight: bold;
   text-align: center;
   transition: top 0.5s ease; /* Smooth transition */
+  width: 90%; /* Set width to 90% for mobile */
+  max-width: 400px; /* Set a max width for larger screens */
 }
 
 .network-status.visible {
@@ -78,6 +79,7 @@ body {
 .status-message {
   display: flex;
   align-items: center;
+  justify-content: center; /* Center the message */
 }
 
 /* Styles for the online message */
@@ -87,7 +89,7 @@ body {
 
 /* Styles for the offline message */
 .offline-message {
-  background: transparent;/* Semi-transparent red */
+  background: transparent; /* Semi-transparent red */
   color: rgb(58, 57, 57);
 }
 
@@ -106,4 +108,24 @@ body {
   background-color: red;
   border-radius: 50%;
   margin-left: 10px;
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 600px) {
+  .network-status {
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+    font-size: 14px; /* Slightly smaller font size */
+  }
+
+  .green-dot, .red-dot {
+    width: 8px; /* Smaller dots for mobile */
+    height: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .network-status {
+    padding: 8px 12px; /* Further adjust padding for very small screens */
+    font-size: 12px; /* Even smaller font size */
+  }
 }
