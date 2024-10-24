@@ -8,11 +8,11 @@ export default function SignupForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("+234"); // Default Nigerian country code
+  const [phoneNumber, setPhoneNumber] = useState("+234");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState(""); // Use confirm password
   const [showPassword, setShowPassword] = useState(false);
-  const [role, setRole] = useState(""); // New state for role selection
+  const [role, setRole] = useState("");
 
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -21,7 +21,7 @@ export default function SignupForm() {
   const isAtLeast8Chars = password.length >= 8;
   const hasSpecialChar = /[!@#$%^&*]/.test(password);
   const hasDigit = /[0-9]/.test(password);
-  const isPasswordMatch = password && confirmPassword && password === confirmPassword;
+  const isPasswordMatch = password === confirmPassword; // Check if passwords match
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -36,7 +36,7 @@ export default function SignupForm() {
           </div>
           <h2 className="mb-6 text-4xl font-bold mt-8">Welcome! Create account</h2>
           <form className="space-y-4">
-            {/* Select Role (Patient / Hospital) */}
+            {/* Role Selection */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">Select Role*</label>
               <div className="flex space-x-4">
@@ -61,7 +61,7 @@ export default function SignupForm() {
               </div>
             </div>
 
-            {/* First Name Field */}
+            {/* First Name */}
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">First Name*</label>
               <div className="flex items-center border border-gray-300 rounded p-2">
@@ -78,7 +78,7 @@ export default function SignupForm() {
               </div>
             </div>
 
-            {/* Last Name Field */}
+            {/* Last Name */}
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Last Name*</label>
               <div className="flex items-center border border-gray-300 rounded p-2">
@@ -95,7 +95,7 @@ export default function SignupForm() {
               </div>
             </div>
 
-            {/* Email Field */}
+            {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email*</label>
               <div className="flex items-center border border-gray-300 rounded p-2">
@@ -112,7 +112,7 @@ export default function SignupForm() {
               </div>
             </div>
 
-            {/* Phone Number Field with default Nigerian code */}
+            {/* Phone Number */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number*</label>
               <div className="flex items-center border border-gray-300 rounded p-2">
@@ -129,7 +129,7 @@ export default function SignupForm() {
               </div>
             </div>
 
-            {/* Password and Confirm Password Fields */}
+            {/* Password */}
             <div className="mb-4">
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password*</label>
               <div className="flex items-center border border-gray-300 rounded p-2">
@@ -148,7 +148,7 @@ export default function SignupForm() {
                 </div>
               </div>
 
-              {/* Password Validation Instructions */}
+              {/* Password Validation */}
               <div className="mt-2 space-y-1 text-sm">
                 <div className={`flex items-center ${isAtLeast8Chars ? "text-green-500" : "text-gray-500"}`}>
                   <BsCheckCircle className={`mr-2 ${isAtLeast8Chars ? "text-green-500" : "text-gray-400"}`} />
@@ -165,7 +165,7 @@ export default function SignupForm() {
               </div>
             </div>
 
-            {/* Confirm Password Field */}
+            {/* Confirm Password */}
             <div>
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password*</label>
               <div className="flex items-center border border-gray-300 rounded p-2">
@@ -180,8 +180,9 @@ export default function SignupForm() {
                   className="w-full focus:outline-none"
                 />
               </div>
+              {/* Password Match Message */}
               {!isPasswordMatch && confirmPassword && (
-                <p className="text-red-500 text-sm">Passwords do not match.</p>
+                <p className="text-red-500 text-sm mt-1">Passwords do not match</p>
               )}
             </div>
 
@@ -189,19 +190,12 @@ export default function SignupForm() {
           </form>
           <p className="mt-6 text-center text-md text-gray-600">
             Already have an account?{" "}
-            <Link to="/login" className="font-medium text-black hover:underline">Log in</Link>
+            <Link to="/login" className="font-medium text-black hover:underline">Login</Link>
           </p>
         </div>
-
-        {/* Right side - Blue background with text and comment card */}
-        <div className="hidden md:block relative w-1/2 h-full bg-blue-500">
-          <h1 className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold text-center">Join the Prime Health Community!</h1>
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold">Your Health Matters</h2>
-            <p className="text-sm text-gray-600">
-              Sign up now and take the first step towards better health. Connect with professionals and get personalized care!
-            </p>
-          </div>
+        {/* Right section */}
+        <div className="hidden w-2/3 rounded-l-2xl bg--transparent lg:flex flex-col items-center justify-center pt-12">
+          <h1 className="text-start justify-center font-semi-bold text-7xl">Join the Health Revolution: Where Care Meets Innovation!</h1>
         </div>
       </div>
     </div>
