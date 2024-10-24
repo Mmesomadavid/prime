@@ -21,6 +21,10 @@
   --green-gray: rgb(14, 30, 31);
 }
 
+span{
+  font-family: 'Raleway', sans-serif;
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -42,4 +46,64 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+
+
+.network-status {
+  position: fixed;
+  top: -100px; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  transition: top 0.5s ease; /* Smooth transition */
+}
+
+.network-status.visible {
+  top: 20px; /* Move into view */
+}
+
+.network-status.hidden {
+  top: -100px; /* Move off-screen */
+}
+
+.status-message {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for the online message */
+.online-message {
+  color: rgb(56, 56, 56);
+}
+
+/* Styles for the offline message */
+.offline-message {
+  background: transparent;/* Semi-transparent red */
+  color: rgb(58, 57, 57);
+}
+
+/* Dot styles */
+.green-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(14, 240, 14);
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.red-dot {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  margin-left: 10px;
 }
