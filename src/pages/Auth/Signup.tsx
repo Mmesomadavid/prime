@@ -193,9 +193,19 @@ export default function SignupForm() {
             <Link to="/login" className="font-medium text-black hover:underline">Login</Link>
           </p>
         </div>
+
         {/* Right section */}
-        <div className="hidden w-2/3 rounded-l-2xl bg--transparent lg:flex flex-col items-center justify-center pt-12">
-          <h1 className="text-start justify-center font-semi-bold text-7xl">Join the Health Revolution: Where Care Meets Innovation!</h1>
+        <div className="hidden lg:flex w-1/2 relative rounded-l-2xl bg-transparent flex-col items-center justify-center pt-15">
+          {/* Glassmorphic Background */}
+          <div className="absolute inset-0 bg-white/10 rounded-l-2xl backdrop-blur-lg border border-white/20 z-10"></div>
+          {/* Scattered Circles */}
+          <div className="absolute w-48 h-48 bg-gradient-to-br from-gray-900 to-black rounded-full opacity-50 -top-10 -left-0"></div>
+          <div className="absolute w-64 h-64 bg-gradient-to-br from-gray-900 to-black rounded-full opacity-50 top-20 right-20"></div>
+          <div className="absolute w-40 h-40 bg-gradient-to-br from-gray-900 to-black-800 rounded-full opacity-50 bottom-10 left-24"></div>
+          {/* Content */}
+          <h1 className="relative text-left justify-center font-semibold text-6xl text-gray-800 z-20 px-8">
+            Join the Health Revolution: Where Care Meets Innovation!
+          </h1>
         </div>
       </div>
     </div>
