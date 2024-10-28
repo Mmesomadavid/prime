@@ -235,7 +235,7 @@ const SignupForm: React.FC = () => {
                 </div>
               </div>
 
-              {error && <Alert message={error} type="error" />}
+              {error && <Alert message={error} type="danger" />}
               <button
                 type="submit"
                 className="w-full mt-6 py-3 px-4 bg-black hover:bg-gray-900 text-white font-semibold rounded-lg focus:outline-none transition duration-200"
